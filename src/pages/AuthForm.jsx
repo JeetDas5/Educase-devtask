@@ -114,7 +114,7 @@ export default function AuthForm({ mode = "signup" }) {
 
   return (
     <div
-      className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-100 to-blue-200 dark:from-[#0f0c29] dark:via-[#302b63] dark:to-[#24243e] transition-all duration-700 ease-in-out flex items-center justify-center px-4 py-12"
+      className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-100 to-blue-200 transition-all duration-700 ease-in-out flex items-center justify-center px-4 py-12"
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       <button
@@ -123,7 +123,7 @@ export default function AuthForm({ mode = "signup" }) {
           visible ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
-        <ArrowLeft className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+        <ArrowLeft className="w-6 h-6 text-gray-700" />
       </button>
 
       <div className="w-full max-w-md space-y-6">
@@ -132,10 +132,10 @@ export default function AuthForm({ mode = "signup" }) {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <h2 className="text-3xl font-bold text-purple-700 dark:text-purple-300">
+          <h2 className="text-3xl font-bold text-purple-700">
             {isLogin ? "Welcome Back" : "Create Account"}
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+          <p className="text-gray-600 text-sm mt-2">
             {isLogin ? "Login to continue" : "Join us today"}
           </p>
         </div>
@@ -151,7 +151,7 @@ export default function AuthForm({ mode = "signup" }) {
               }`}
               style={{ transitionDelay: `${200 + idx * 100}ms` }}
             >
-              <label className="block text-purple-600 dark:text-purple-400 text-sm font-semibold mb-2">
+              <label className="block text-purple-600 text-sm font-semibold mb-2">
                 {field.label}
                 {field.required && <span className="text-purple-500">*</span>}
               </label>
@@ -170,10 +170,10 @@ export default function AuthForm({ mode = "signup" }) {
                   onFocus={() => setFocused(field.key)}
                   onBlur={() => setFocused("")}
                   onChange={(e) => handleChange(field.key, e.target.value)}
-                  className={`w-full pl-10 pr-12 py-3 rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-2 transition-all duration-300 focus:outline-none ${
+                  className={`w-full pl-10 pr-12 py-3 rounded-xl bg-white text-gray-900 border-2 transition-all duration-300 focus:outline-none ${
                     focused === field.key || formData[field.key]
-                      ? "border-purple-500 bg-purple-50 dark:border-purple-400 dark:bg-purple-900/20"
-                      : "border-gray-200 dark:border-gray-700"
+                      ? "border-purple-500 bg-purple-50"
+                      : "border-gray-200"
                   }`}
                 />
                 {field.toggle && (
@@ -201,7 +201,7 @@ export default function AuthForm({ mode = "signup" }) {
             }`}
             style={{ transitionDelay: "700ms" }}
           >
-            <label className="block text-gray-700 dark:text-gray-300 text-base font-medium mb-4">
+            <label className="block text-gray-700 text-base font-medium mb-4">
               Are you an Agency?<span className="text-purple-500">*</span>
             </label>
             <div className="flex gap-6">
@@ -218,7 +218,7 @@ export default function AuthForm({ mode = "signup" }) {
                   className={`relative w-6 h-6 rounded-full border-2 transition-all duration-300 ${
                     isAgency
                       ? "border-purple-500 bg-purple-500"
-                      : "border-gray-300 dark:border-gray-600 group-hover:border-purple-400"
+                      : "border-gray-300 group-hover:border-purple-400"
                   }`}
                 >
                   {isAgency && (
@@ -229,9 +229,7 @@ export default function AuthForm({ mode = "signup" }) {
                 </div>
                 <span
                   className={`ml-3 font-medium transition-colors duration-200 ${
-                    isAgency
-                      ? "text-purple-600 dark:text-purple-400"
-                      : "text-gray-700 dark:text-gray-300"
+                    isAgency ? "text-purple-600" : "text-gray-700"
                   }`}
                 >
                   Yes
@@ -251,7 +249,7 @@ export default function AuthForm({ mode = "signup" }) {
                   className={`relative w-6 h-6 rounded-full border-2 transition-all duration-300 ${
                     !isAgency
                       ? "border-purple-500 bg-purple-500"
-                      : "border-gray-300 dark:border-gray-600 group-hover:border-purple-400"
+                      : "border-gray-300 group-hover:border-purple-400"
                   }`}
                 >
                   {!isAgency && (
@@ -262,9 +260,7 @@ export default function AuthForm({ mode = "signup" }) {
                 </div>
                 <span
                   className={`ml-3 font-medium transition-colors duration-200 ${
-                    !isAgency
-                      ? "text-purple-600 dark:text-purple-400"
-                      : "text-gray-700 dark:text-gray-300"
+                    !isAgency ? "text-purple-600" : "text-gray-700"
                   }`}
                 >
                   No
@@ -303,7 +299,7 @@ export default function AuthForm({ mode = "signup" }) {
             {isLogin ? "Don't have an account?" : "Already have an account?"}
             <button
               onClick={() => navigate(isLogin ? "/signup" : "/login")}
-              className="text-purple-600 dark:text-purple-400 font-semibold ml-1"
+              className="text-purple-600 font-semibold ml-1"
             >
               {isLogin ? "Sign Up" : "Login"}
             </button>
