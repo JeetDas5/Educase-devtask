@@ -284,7 +284,6 @@ export default function AuthForm({ mode = "signup" }) {
         >
           <button
             onClick={handleSubmit}
-            disabled={!isValid}
             className={`w-full py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all
               ${!isValid ? "opacity-50 cursor-not-allowed" : "opacity-100"}
               ${
