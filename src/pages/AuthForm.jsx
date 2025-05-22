@@ -8,6 +8,7 @@ export default function AuthForm({ mode = "signup" }) {
   const [showPassword, setShowPassword] = useState(false);
   const [focused, setFocused] = useState("");
   const [isAgency, setIsAgency] = useState(false);
+  const [isValid, setIsValid] = useState(true);
   const navigate = useNavigate();
 
   const isLogin = mode === "login";
@@ -78,10 +79,12 @@ export default function AuthForm({ mode = "signup" }) {
   const handleSubmit = () => {
     if (isLogin) {
       if (!formData.email || !formData.password) {
+        setIsValid(false);
         toast.error("Please fill in all fields");
         return;
       }
       if (formData.password.length < 6) {
+        setIsValid(false);
         toast.error("Password must be at least 6 characters");
         return;
       }
@@ -92,24 +95,28 @@ export default function AuthForm({ mode = "signup" }) {
         !formData.fullName ||
         !formData.phone
       ) {
+        setIsValid(false);
         toast.error("Please fill in all fields");
         return;
       }
       if (isNaN(formData.phone)) {
+        setIsValid(false);
         toast.error("Phone number must be numeric");
         return;
       }
       if (formData.phone.length < 10) {
+        setIsValid(false);
         toast.error("Phone number must be at least 10 digits");
         return;
       }
       if (formData.password.length < 6) {
+        setIsValid(false);
         toast.error("Password must be at least 6 characters");
         return;
       }
     }
     toast.success(isLogin ? "Login successful!" : "Registration successful!");
-    navigate("/Profile", { state: { ...formData } });
+    navigate("/profile", { state: { ...formData } });
   };
 
   return (
@@ -277,14 +284,15 @@ export default function AuthForm({ mode = "signup" }) {
         >
           <button
             onClick={handleSubmit}
-            disabled={
-              !formData.email ||
-              !formData.password ||
-              (!isLogin && !formData.fullName)
-            }
-            className={`w-full py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
+            disabled={!isValid}
+            className={`w-full py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all
+              ${!isValid ? "opacity-50 cursor-not-allowed" : "opacity-100"}
+              ${
+                visible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+              }
+            `}
           >
             {isLogin ? "Login" : "Register"}
           </button>
