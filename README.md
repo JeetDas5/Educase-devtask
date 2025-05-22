@@ -2,6 +2,10 @@
 
 A simple React application for Educase ReactJs internship assignment that allows users to sign up and view their profile information immediately after registration. This app demonstrates form handling, state transfer using `react-router-dom`, and conditional rendering of user data.
 
+## Deployed Link
+
+[Live Demo](https://educase-devtask.vercel.app/)
+
 ## 🔧 Features
 
 - 📝 Signup form with name, email, phone, etc.
@@ -19,9 +23,8 @@ A simple React application for Educase ReactJs internship assignment that allows
 ```
 
 src/
-│
-├── components/
-│   └── AuthForm.js       # Signup and Login form component
+├── pages/
+│   └── AuthForm.js       # Signup and Login form page
 │   └── Profile.js        # Profile display page
 │   └── Home.js           # Home page
 │
@@ -83,7 +86,7 @@ App runs locally at `http://localhost:5173`.
 
 ## 🧑‍💻 Author
 
-Made by [Jeet Das](https://github.com/JeetDas5)
+Made by [Jeet Das](https://github.com/JeetDas5) <br/>
 Feel free to reach out for any questions or suggestions!
 
 ## 📄 License
