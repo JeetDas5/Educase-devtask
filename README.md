@@ -1,12 +1,93 @@
-# React + Vite
+# User Profile App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React application for Educase ReactJs internship assignment that allows users to sign up and view their profile information immediately after registration. This app demonstrates form handling, state transfer using `react-router-dom`, and conditional rendering of user data.
 
-Currently, two official plugins are available:
+## 🔧 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📝 Signup form with name, email, phone, etc.
+- 👤 Profile page showing submitted data
+- 🎨 Styled with Tailwind CSS
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React(Vite)
+- Tailwind CSS
+- JavaScript (ES6+)
+
+## 📁 Folder Structure
+
+```
+
+src/
+│
+├── components/
+│   └── AuthForm.js       # Signup and Login form component
+│   └── Profile.js        # Profile display page
+│   └── Home.js           # Home page
+│
+├── App.js                # Main app routing
+├── main.js               # Entry point
+└── ...
+
+```
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/JeetDas5/Educase-devtask.git
+```
+
+cd Educase-devtask
+
+````
+
+### 2. Install dependencies
+
+```bash
+npm install
+````
+
+### 3. Run the app
+
+```bash
+npm start
+```
+
+App runs locally at `http://localhost:5173`.
+
+## 📦 How It Works
+
+1. User fills the **Signup** form.
+2. On submit, data is passed to the **Profile** page using:
+
+   ```js
+   navigate("/Profile", { state: { ...formData } });
+   ```
+
+3. The **Profile** page reads this data with:
+
+   ```js
+   const location = useLocation();
+   const profileData = location.state;
+   ```
+
+4. Profile information is then rendered based on `profileData`.
+
+## 🔒 Optional Enhancements
+
+- Add localStorage/sessionStorage for data persistence on refresh.
+- Integrate form validation (e.g., with Yup or Formik).
+- Add backend support using Node.js/Express & MongoDB.
+
+## 🧑‍💻 Author
+
+Made by [Jeet Das](https://github.com/JeetDas5)
+Feel free to reach out for any questions or suggestions!
+
+## 📄 License
+
+MIT License
+
+---

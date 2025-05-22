@@ -1,16 +1,15 @@
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AuthForm from "./pages/AuthForm";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<AuthForm mode="login" />} />
+        <Route path="/signup" element={<AuthForm mode="signup" />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
